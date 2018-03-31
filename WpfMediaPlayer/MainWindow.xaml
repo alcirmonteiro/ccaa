@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfMediaPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMediaPlayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="380" Width="525"
+        PreviewKeyDown="TelaPlayer_KeyDown"
+        PreviewKeyUp="TelaPlayer_KeyUp">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="320*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <MediaElement x:Name="MediaPlayer" 
+                      Grid.RowSpan="1" 
+                      LoadedBehavior="Manual"
+                      MediaOpened="Midia_MediaOpened"
+                      ScrubbingEnabled="True"
+                      Focusable="False" />
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Button Focusable="False" x:Name="btnPlay" Content="Play" Click="btnPlay_Click" Width="50" Height="25" Margin="5"/>
+            <Button Focusable="False" x:Name="btnStop" Content="Stop" Click="btnStop_Click" Width="50" Height="25" Margin="5"/>
+            <Button Focusable="False" x:Name="btnMoveBack" Content="Back" Click="btnMoveBack_Click" Width="50" Height="25" Margin="5"/>
+            <Button Focusable="False" x:Name="btnMoveForward" Content="Forward" Click="btnMoveForward_Click" Width="50" Height="25" Margin="5"/>
+            <Button Focusable="False" x:Name="btnOpen" Content="Open" Click="btnOpen_Click" Width="50" Height="25" Margin="5"/>
+        </StackPanel>
+
+        <DockPanel VerticalAlignment="Center" 
+                   Margin="10" 
+                   Grid.Row="2">
+     
+            <Label
+                Content="{Binding ElementName=slValue, Path=Value, UpdateSourceTrigger=PropertyChanged}"
+                DockPanel.Dock="Right"
+                Width="40" />
+
+            <Slider 
+                Maximum="255" 
+                TickPlacement="BottomRight" 
+                TickFrequency="1" 
+                IsSnapToTickEnabled="True"
+                Name="slValue" />
+            
+        </DockPanel>
+        <Image 
+            x:Name="imgSnapShot"
+            HorizontalAlignment="Left" 
+            Height="100" 
+            Margin="0,172,0,0" 
+            VerticalAlignment="Top" 
+            Width="100" 
+            RenderTransformOrigin="0.377,0.147"
+            Source="H:\\Alcir\\fotos\\Naruto.jpg"/>
+    </Grid>
+</Window>
