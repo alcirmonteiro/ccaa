@@ -49,11 +49,9 @@
         <Image 
             x:Name="imgSnapShot"
             HorizontalAlignment="Left" 
-            Height="100" 
-            Margin="0,172,0,0" 
+            Height="60" 
             VerticalAlignment="Top" 
             Width="100" 
-            RenderTransformOrigin="0.377,0.147"
             Source="H:\\Alcir\\fotos\\Naruto.jpg"/>
     </Grid>
 </Window>
